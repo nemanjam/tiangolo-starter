@@ -121,6 +121,7 @@ services:
       - traefik.docker.network=traefik-public
       - traefik.constraint-label=traefik-public
 
+      # 8000 uvicorn default port, backend/Dockerfile
       - traefik.http.services.${STACK_NAME?Variable not set}-backend.loadbalancer.server.port=8000
 
       - traefik.http.routers.${STACK_NAME?Variable not set}-backend-http.rule=Host(`api.${DOMAIN?Variable not set}`)
